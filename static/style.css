@@ -1,0 +1,141 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 420px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+h1 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #ff7b00, #ff00cc, #00eaff, #ff7b00);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: gradient-move 3s ease-in-out infinite, slideDown 1s ease;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1.5px 0 #fff;
+    border-radius: 12px;
+    padding: 10px 0 8px 0;
+    transition: transform 0.2s;
+}
+
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Input box */
+input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Button */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #ff7b00;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+button:hover {
+    background: #ff4d00;
+    transform: scale(1.05);
+}
+
+/* Result Box */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    animation: fadeIn 1s ease;
+}
+
+/* Red = Sarcastic */
+.red {
+    background: linear-gradient(45deg, #ff4d4d, #ff0000);
+}
+
+/* Blue = Not sarcastic */
+.blue {
+    background: linear-gradient(45deg, #4da6ff, #0066ff);
+}
+
+/* Highlight Box */
+.highlight {
+    margin-top: 15px;
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    animation: fadeIn 1.2s ease;
+}
+
+/* Confidence text */
+.result p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

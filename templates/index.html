@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sarcasm Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>😏 Sarcasm Detection App</h1>
+
+    <form action="/predict" method="post">
+        <input type="text" name="text" placeholder="Enter your sentence..." required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result {% if color %}{{ color }}{% else %}gray{% endif %}">
+            <h2>{{ prediction_text }}</h2>
+            {% if confidence and confidence != 'N/A' %}
+                <p><strong>Confidence:</strong> {{ confidence }}%</p>
+            {% endif %}
+            {% if explanation %}
+                <p>{{ explanation }}</p>
+            {% endif %}
+        </div>
+
+        {% if highlighted_text %}
+        <div class="highlight">
+            <p>Highlighted Text:</p>
+            <p>{{ highlighted_text|safe }}</p>
+        </div>
+        {% endif %}
+    {% endif %}
+</div>
+
+</body>
+</html>
